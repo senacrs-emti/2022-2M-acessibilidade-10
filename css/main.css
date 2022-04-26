@@ -1,12 +1,44 @@
-*{
-    padding: 0;
-    margin: 0;
-    font-size: 62.5%;
+* {
+  padding: 0;
+  margin: 0;
 }
-h1 a{
+:root{
+  --blue: rgb(0, 0, 255);
+  --darkerBlue: rgb(0, 0, 200);
+  --white: rgb(255, 255, 255);
+
+}
+
+#header h1 a {
+  text-decoration: none;
+  color: black;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    background-color: var(--blue);
+}
+ul li a {
+    font-size: 3rem;
     text-decoration: none;
-    color: white;
+  color: var(--white);
 }
-h1 a:hover {
-    color:blue
+ul li a:hover {
+  background-color: var(--darkerBlue);
+}
+
+#footer {
+  background-color: var(--blue);
+}
+#footer p {
+  color: var(--white);
+}
+#footer p a {
+  color: ar(--white);
+} 
+#footer p a:hover {
+  color: var(--blue);
+  background-color: var(--white);
 }
