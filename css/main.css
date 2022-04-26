@@ -36,7 +36,8 @@ ul li a:hover {
   color: var(--white);
 }
 #footer p a {
-  color: ar(--white);
+  color: var(--white);
+  background-color: var(--blue);
 } 
 #footer p a:hover {
   color: var(--blue);
