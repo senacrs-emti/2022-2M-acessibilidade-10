@@ -27,13 +27,97 @@
         </li>
       </ul>
     </div>
+    <h2>Como foi feita a ferramenta de acessibilidade</h2>
+    <p>
+      vamos começar por, o que é a ferramenta, a ferramenta foi feita com a
+      simples intenção de fazer com que todas as pessoas com daltonismo pudessem
+      ver o site da mesma maneira que as outras, porém, como a ideia principal é
+      algo praticamente impossivel de se fazer, tivemos que fazer algo diferente
+      pra alcançar esse objetivo
+    </p>
+    <h4>O grey scale</h4>
+    <p>
+      O grey scale, ou escala de cinza, foi o método que decidimos usar pra
+      alcançar o objetivo principal, uma ferramenta de acessibilidade que faz
+      com que seja possível ver o site inteiro em tons de cinza, e você me
+      pergunta "pra que?" e eu te respondo, porque isso tira basicamente toda a
+      dificuldade de pessoas com qualquer deficiência de cor para enxergar o
+      site de uma mesma maneira
+    </p>
+    <h4>Mas por que o grey scale?</h4>
+    <p>
+      Simples, porque o greyscale executa a função que eu precisava que ele
+      executasse de maneira perfeita e simples, eu queria que fosse diferente,
+      mas daria trabalho demais, ja que eu teria que fazer uma ferramenta do
+      zero, que fizesse uma função extremamente complexa, talvez quando eu tiver
+      com mais tempo eu consiga fazer o objetivo principal, mas no momento, com
+      o tempo limitado, não deu, então o grey scale foi a melhor maneira pra
+      fazer essa função com o tempo que eu tinha
+    </p>
+    <h2>
+      E agora, vamos pra explicação do código
+    </h2>
+    <h4>
+      Primeiro o código no css
+    </h4>
+      <p id="css-code">
+     <a>
+      html{
+        padding: 0;
+        margin: 0;
+      
+        --blue: #0000ff;
+        --darkerBlue: #0000c8;
+        --white: #ffffff;
+      
+      }
+      </a>
+      que dentro da sessão do html, eu criei as variaveis de cor, que são extremamente importantes, entãoo, se quiser usar a função do greyscale, eu recomendo que faça isso se não quiser passar muito trabalho
+    </p>
+    <h4>
+      E agora o código do java script, que por ser um pouco mais complexo eu vou fazer comentários dentro do próprio código pra explicar
+    </h4>
+    <p id=""js-code>
+      const html = document.querySelector("html")
+const checkbox = document.querySelector("input[name=theme]")
+
+const getStyle = (elemente, style) => window.getComputedStyle(html).getPropertyValue("--bg")
+
+const initialColors = {
+    blue: getStyle(html, "--blue"),
+    darkBlue: getStyle(html, "--darkBlue"),
+    white: getStyle(html, "--white"),
+}
+
+const greyScale = {
+    blue: "#ffff00",
+    darkBlue: "ffff37",
+    white: "#000000",
+  }
+
+const transformKey = key => 
+"--" + key.replace(/([A-Z])/, "-$1").toLowerCase()
+
+const changeColors = (colors) =>{
+    Object.keys(colors).map(key =>
+        html.style.setProperty(transformKey(key), colors[key])
+    )
+}
+
+checkbox.addEventListener("change", ({target}) =>{
+    target.checked ? changeColors(greyScale) : changeColors(initialColors)
+})
+    </p>
     <div id="footer">
       <p>
         Site feito por
         <a href="https://instagram.com/fabricio_rech" target="_blank"
           >Fabrício Rech</a
         >,
-        <a href="https://instagram.com/sefrim_06" target="_blank"> Gabriel Sefrim</a> e
+        <a href="https://instagram.com/sefrim_06" target="_blank">
+          Gabriel Sefrim</a
+        >
+        e
         <a href="https://instagram.com/cactuties" target="_blank">
           Mariana Florence</a
         >
