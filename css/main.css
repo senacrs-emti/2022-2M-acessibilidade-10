@@ -5,11 +5,12 @@ html{
   --blue: #0000ff;
   --darkerBlue: #0000c8;
   --white: #ffffff;
+  --black: #000000;
 
 }
 #header h1 a {
   text-decoration: none;
-  color: black;
+  color: var(--black);
 }
 ul{
     display: flex;
@@ -40,4 +41,8 @@ ul li a:hover {
 #footer p a:hover {
   color: var(--blue);
   background-color: var(--white);
+}
+
+.dalt-list{
+  padding-left: 1.5rem;
 }
